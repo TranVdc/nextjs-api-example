@@ -6,14 +6,12 @@ import { Topper } from "@/components/Topper";
 import { Navbar } from "@/components/navbar/Navbar";
 import { HamburgerBtn } from "@/components/navbar/HamburgerBtn";
 import { DeleteAll } from "@/components/todos/DeleteAll";
-import { userId } from "@/app/api/todo/route";
 
 export default async function Todo() {
-  const userID = await userId();
 
   const todos = await prisma.todo.findMany({
     where: {
-      userId: { equals: userID },
+      userId: { equals: '1' },
     },
   });
 
